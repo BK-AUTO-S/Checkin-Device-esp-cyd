@@ -152,6 +152,7 @@ void setup()
     lv_obj_set_style_bg_color(screen1, lv_color_make(255, 0, 0), LV_PART_MAIN);
     lv_obj_set_style_bg_color(screen2, lv_color_make(0, 255, 0), LV_PART_MAIN);
 
+    lv_screen_load(screen1);
 
     // lv_obj_t *label = lv_label_create( lv_screen_active() );
     // lv_label_set_text( label, "Hello BK_AUTO!" );
