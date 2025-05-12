@@ -1,5 +1,7 @@
 # ESP CYD TUTORIAL
 
+## SETUP ENVIRONMENT
+
 1. Setup project on PlatformIO 
 
 - Select board: esp32dev
@@ -1554,4 +1556,48 @@
 #endif /*End of "Content enable"*/
 ```
 
+5. Make sure platformio.ini look like this
 
+```ini
+; PlatformIO Project Configuration File
+;
+;   Build options: build flags, source filter
+;   Upload options: custom upload port, speed and extra flags
+;   Library options: dependencies, extra library storages
+;   Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+[env:esp32dev]
+platform = espressif32
+board = esp32dev
+framework = arduino
+monitor_speed = 115200
+build_flags = 
+	-D LV_CONF_INCLUDE_SIMPLE
+	-D LV_LVGL_H_INCLUDE_SIMPLE
+	-D LV_CONF_PATH="${PROJECT_DIR}/src/lv_conf.h"
+	
+	-D TFT_MISO=12
+	-D TFT_MOSI=13
+	-D TFT_SCLK=14
+	-D TFT_CS=15
+	-D TFT_DC=2
+	-D TOUCH_CS=33
+	-D TFT_BL=21
+	-D TFT_BACKLIGHT_ON=HIGH
+	-D ILI9341_2_DRIVER=1
+
+  -D XPT2046_IRQ=36      ; Chân ngắt (Touch IRQ)
+  -D XPT2046_MOSI=32     ; Chân MOSI (Master Out Slave In)
+  -D XPT2046_MISO=39     ; Chân MISO (Master In Slave Out)
+  -D XPT2046_CLK=25      ; Chân Clock (SCK)
+  -D XPT2046_CS=33       ; Chân chọn chip (Chip Select)
+
+
+lib_deps = 
+	bodmer/TFT_eSPI@^2.5.43
+	lvgl/lvgl@^9.2.2
+	bodmer/TFT_Touch@^0.3
+```
