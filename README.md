@@ -1601,3 +1601,10 @@ lib_deps =
 	lvgl/lvgl@^9.2.2
 	bodmer/TFT_Touch@^0.3
 ```
+
+### Change Library
+
+- TFT_Touch to https://github.com/PaulStoffregen/XPT2046_Touchscreen.git
+
+- Make sure lib_deps look like this
+![alt text](image-1.png)
