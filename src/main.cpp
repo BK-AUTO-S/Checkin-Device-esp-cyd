@@ -8,6 +8,7 @@
 #define VMIN 550
 #define VMAX 3400
 #define XYSWAP 1 // 0 or 1
+#include <Arduino.h>
 
 #include <lvgl.h>
 #include <TFT_Touch.h>
